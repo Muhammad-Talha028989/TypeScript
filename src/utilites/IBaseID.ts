@@ -1,0 +1,3 @@
+interface IBaseID {
+  ID: string;
+}
