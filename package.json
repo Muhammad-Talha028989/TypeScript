@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "serve": "nodemon --exec ts-node src/index.ts",
+    "types": "nodemon --exec ts-node src/Types/type.union.ts",
     "start": "node ./src/source.js"
   },
   "devDependencies": {
