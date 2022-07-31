@@ -1,3 +1,4 @@
+//? Call the Factory in Main class method
 import { IPerson } from "./IPerson";
 import { PersonFactories } from "./PersonFactories";
 
