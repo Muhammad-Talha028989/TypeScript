@@ -9,7 +9,7 @@ import {
   defaultEquals,
 } from "./util";
 
-export class LinkedList<T extends any> implements Iterable<T> {
+export class LinkedList<T> implements Iterable<T> {
   private list: Lists<T> | undefined;
 
   constructor() {
@@ -115,6 +115,15 @@ export class LinkedList<T extends any> implements Iterable<T> {
     return cur.value;
   }
 
+  getAllNode(): void {
+    let cur: LinkedListNode<T> = this.list.tail;
+    let arrayOfNumber: Array<T> = [];
+    while (cur !== null) {
+      arrayOfNumber.push(cur.value);
+      cur = cur.Prev;
+    }
+    console.log(arrayOfNumber);
+  }
   indexOf(value: T, equalsFunction?: IEqualsFunction<T>): number {
     if (!this.list) return -1;
     const equalsF: IEqualsFunction<T> | boolean =

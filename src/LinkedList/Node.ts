@@ -3,11 +3,11 @@ class LinkedListNode<T> {
   Next: LinkedListNode<T> | null;
   Prev: LinkedListNode<T> | null;
 
-  constructor(value: T) {
-    this.value = value;
+  constructor(value?: T) {
+    this.value = value || undefined;
     this.Next = null;
     this.Prev = null;
   }
 }
 
-export default LinkedListNode
+export default LinkedListNode;
