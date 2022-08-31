@@ -1,20 +1,23 @@
-type combinerType = string | number;
+/**
+ * Typescript Utility Types
+ */
 
-export class Combiner {
-  public param: combinerType;
-
-  public param1: combinerType;
-
-  constructor(param?: combinerType, param1?: combinerType) {
-    this.param = param;
-    this.param1 = param1;
-  }
-  public combiners = (): combinerType => {
-    return this.param + " " + this.param1;
-  };
-  public adds = (num: number, num1: number): combinerType => {
-    this.param = num;
-    this.param1 = num1;
-    return this.param + this.param1;
-  };
+// Partial types
+interface student {
+  name: string;
+  rollno: string;
 }
+
+const getStudent = (Students: student, optional: Partial<student>) => ({
+  ...Students,
+  ...optional,
+});
+
+let st: student = {
+  name: "Muhammad Talha",
+  rollno: "112/028989",
+};
+
+const st2 = getStudent(st,{});
+
+console.info(st2);

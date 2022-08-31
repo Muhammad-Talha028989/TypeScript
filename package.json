@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "test": "mocha --require ts-node/register --watch-extensions ts 'src/test/index.ts'",
-    "serve": "nodemon --exec ts-node src/index.ts",
+    "serve": "nodemon --exec ts-node 'src/index.ts'",
     "types": "nodemon --exec ts-node src/Types/type.union.ts",
     "pattern": "nodemon --exec ts-node src/DesignPattarn/FactoryDesignPattern.ts",
     "overloading": "nodemon --exec ts-node src/Overloading/Overloading.ts",
