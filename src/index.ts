@@ -1,42 +1,27 @@
-// /**
-//  * Typescript Utility Types
-//  */
+// Sorting and Filter the array of object
 
-// // Partial types
-// interface student {
-//   name: string;
-//   rollno: string;
-// }
-
-// const getStudent = (Students: student, optional: Partial<student>) => ({
-//   ...Students,
-//   ...optional,
-// });
-
-// let st: student = {
-//   name: "Muhammad Talha",
-//   rollno: "112/028989",
-// };
-
-// const st2 = getStudent(st, {});
-
-// console.info(st2);
-let _startProcessTime: number = Number(new Date().getTime().toFixed(3));
-
-console.info(`Process Start ${0} ms`);
-
-for (let index = 0; index < 15; index++) {
-  let sum: number = index + 1;
-  let _ProcessTimeEnd: number = Number(new Date().getTime().toFixed(3));
-
-  let _overlapsTime: number = parseFloat(
-    String(_ProcessTimeEnd / _startProcessTime),
-  );
-  console.info(`overtime ${_overlapsTime} ms`);
+enum Gender {
+  Male,
+  Female,
 }
 
-let _endProcessTime: number = Number(new Date().getTime().toFixed(3));
+interface IPerson {
+  name: string;
+  age: number;
+  gender: Gender;
+}
 
-let _overAllTime: number = _endProcessTime - _startProcessTime;
+const People: IPerson[] = [
+  { name: "Muhammad Talha", age: 22, gender: Gender.Male },
+  { name: "Muhammad Ahmed", age: 25, gender: Gender.Male },
+  { name: "Muhammad Umer", age: 13, gender: Gender.Male },
+  { name: "Tuba", age: 17, gender: Gender.Female },
+];
 
-console.info(`Process End ${_overAllTime} ms`);
+const FilterByAge = (People: IPerson[], range: { min: number; max: number }) =>
+  People.filter((person) => person.age >= range.min && person.age <= range.max);
+
+let range: { min: number; max: number } = { min: 18, max: 25 };
+const filterByAge = FilterByAge(People, range);
+
+console.info(filterByAge);
