@@ -1,8 +1,12 @@
 export {};
+/**
+ * Swaps is the function that help to swap array index and their values...
+ * @param array Array of numbers
+ * @param index Array index of value that tend to small then minIndex for swap
+ * @param minIndex Array index of suppose min value index
+ */
 const Swaps = (array: number[], index: number, minIndex: number) => {
-  const temp: number = array[index];
-  array[index] = array[minIndex];
-  array[minIndex] = temp;
+  [array[index], array[minIndex]] = [array[minIndex], array[index]];
 };
 /**
  * Selection Sort is the algorithms used to sorting the linear data structure...
@@ -12,20 +16,21 @@ const Swaps = (array: number[], index: number, minIndex: number) => {
 const selectionSort: (array: number[]) => number[] = (
   array: number[],
 ): number[] => {
-  for (let index: number = 0; index < array.length - 1; index++) {
+  let arr = array.slice();
+  for (let index: number = 0; index < arr.length - 1; index++) {
     let minIndex: number = index;
     for (
       let innerIndex: number = index + 1;
-      innerIndex < array.length;
+      innerIndex < arr.length;
       innerIndex++
     ) {
-      if (array[innerIndex] < array[minIndex]) {
+      if (arr[innerIndex] < arr[minIndex]) {
         minIndex = innerIndex;
       }
     }
-    Swaps(array, index, minIndex);
+    Swaps(arr, index, minIndex);
   }
-  return array;
+  return arr;
 };
 
 console.info(selectionSort([2, 3, 1, 4, 5, 6, 7, 9, 8]));
